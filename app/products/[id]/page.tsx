@@ -48,7 +48,7 @@ export default function ProductDetail() {
   };
 
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-32 pb-24 border">
       {/* Success Notification */}
       <AnimatePresence>
         {showSuccess && (
@@ -56,12 +56,14 @@ export default function ProductDetail() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
-            className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] bg-foreground text-background px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/10"
+            className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] bg-foreground text-background px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/10 w-[90%] max-w-sm"
           >
-            <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+            <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
               <Check size={14} className="text-white" />
             </div>
-            <p className="font-medium">{product.name} added to your bag!</p>
+            <p className="font-medium text-sm">
+              {product.name} added to your bag!
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -84,7 +86,7 @@ export default function ProductDetail() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="md:sticky top-32"
+            className="md:sticky md:top-32"
           >
             <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden bg-secondary">
               <Image
